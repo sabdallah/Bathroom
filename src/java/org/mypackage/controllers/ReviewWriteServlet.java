@@ -41,18 +41,18 @@ public class ReviewWriteServlet extends HttpServlet {
             throws ServletException, IOException, Exception {
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/failReview.jsp");
-        int reviewID = 1; // should each review have a unique id we assign behind the scenes to act as the key for the json hashmap?
+        
         // overall, cleanliness, tubShower, towelRobe, lighting, amenities - ratings from 1-5
-        //reviewTitle, description, img;        
+        // reviewTitle, description, img;        
         // these are all the variables Andrew wants according to ppt, not sure which should be required and which should not
-        String hotelNameAndLocation; // not sure how we are going to delineate these, need to look at the hotel API thing
-        JSONObject reviewMap = new JSONObject; // in reality, we need to have each hotel have its own hashMap, so we'd need a database method for this
+        
+        JSONArray<String[]> allReviewsHotel = new JSONArray<String[]>();
+        JSONArray<String[]> allReviewsUser = new JSONArray<String[]>(); // in reality, these arrays will come from the hotel being reviewed. Not sure how that is passed in or acccessed via the html 
         String[] reviewInfo = new String[9];
-        // I was thinking the each spot in the array corresponds to different variable, and that the array would be value in the shmap
+      // each spot in reviewInfo corresponds to a different variable listed above
 
         
-        // I was thinking for radio buttons we could have the default be filled in
-        // at three stars, so this null checking wouldn't even be necesary
+        // I was thinking for radio buttons we could have the default be filled in at three stars, so this null checking wouldn't even be necesary
         if (request.getParameter("overall") != null 
                 && request.getParameter("cleanliness") != null 
                 && request.getParameter("tubShower") != null 
@@ -61,7 +61,7 @@ public class ReviewWriteServlet extends HttpServlet {
                 && request.getParameter("amenities") != null){
             
             
-            // not sure how we'll get an int from the html page, he said he wants radio buttons
+            // you'll have to figure out how to get an int or string from the radio button rating system he wants
             reviewInfo[0] = (String) request.getParameter("password");           
             reviewInfo[1] = (String) request.getParameter("password2");
            reviewInfo[2] = (String) request.getParameter("username");
@@ -73,7 +73,7 @@ public class ReviewWriteServlet extends HttpServlet {
          
             }
          else {
-            // don't think this will be needed if we default all values to 3 stars
+            // don't think this will be needed if we default all values to 3 stars and description, title, and img aren't required
             request.setAttribute("error", new StringHolder("Please fill out all of the required information"));
             dispatcher.forward(request, response);
             return;
@@ -90,7 +90,8 @@ public class ReviewWriteServlet extends HttpServlet {
        // profanity checck for reviews here?
         // still need error catching for image
         
-        reviewMap.put(reviewID, reviewInfo);
+       allReviewsHotel.add(reviewInfo);
+       allReviewsUser.add(reviewInfo);
         
         dispatcher = getServletContext().getRequestDispatcher("/index.html");
         dispatcher.forward(request, response);
@@ -98,20 +99,6 @@ public class ReviewWriteServlet extends HttpServlet {
     }
     
      
-     public void addUser(String email, String password){
-         //UserDatabaseHandler.addUser(email, password);
-     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
