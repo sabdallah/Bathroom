@@ -47,7 +47,7 @@ public class ReviewWriteServlet extends HttpServlet {
         // these are all the variables Andrew wants according to ppt, not sure which should be required and which should not
         
         JSONArray<String[]> allReviewsHotel = new JSONArray<String[]>();
-        JSONArray<String[]> allReviewsUser = new JSONArray<String[]>(); // in reality, these arrays will come from the hotel being reviewed. Not sure how that is passed in or acccessed via the html 
+        JSONArray<String[]> allReviewsUser = new JSONArray<String[]>(); // in reality, these arrays will come from the hotel being reviewed and the reviewers account. Not sure how that is passed in or acccessed via the html 
         String[] reviewInfo = new String[9];
       // each spot in reviewInfo corresponds to a different variable listed above
 
