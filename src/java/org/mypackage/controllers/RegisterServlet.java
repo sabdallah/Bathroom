@@ -1,5 +1,6 @@
 package org.mypackage.controllers;
 
+import org.json.simple.JSONArray;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -88,7 +89,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
         // still need error catching for image, if not found in directory
-        
+        JSONArray<String[]> reviewList = new JSONArray<String[]>();
         addUser(username.toLowerCase(), pass1);
         //sendEmail(user);
         dispatcher = getServletContext().getRequestDispatcher("/index.html");
