@@ -89,7 +89,7 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
         // still need error catching for image, if not found in directory
-        JSONArray<String[]> reviewList = new JSONArray<String[]>();
+        JSONArray userReviewList = new JSONArray(); // this JSON array is the list of the reviews the user has written, needs to be linked to user in database
         addUser(username.toLowerCase(), pass1);
         //sendEmail(user);
         dispatcher = getServletContext().getRequestDispatcher("/index.html");

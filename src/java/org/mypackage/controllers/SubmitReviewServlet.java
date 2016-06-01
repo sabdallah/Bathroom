@@ -1,10 +1,9 @@
 package org.mypackage.controllers;
 
-import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.internet.AddressException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,20 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 //import org.mypackage.models.Encryption;
 import org.mypackage.models.StringHolder;
 
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMessage.RecipientType;
-import javax.naming.InitialContext;
 //import org.mypackage.models.UserDatabaseHandler;
 
 /**
  *
  * @author Sam Abdallah
  */
-public class ReviewWriteServlet extends HttpServlet {
+public class SubmitReviewServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -46,8 +38,8 @@ public class ReviewWriteServlet extends HttpServlet {
         // reviewTitle, description, img;        
         // these are all the variables Andrew wants according to ppt, not sure which should be required and which should not
         
-        JSONArray<String[]> allReviewsHotel = new JSONArray<String[]>();
-        JSONArray<String[]> allReviewsUser = new JSONArray<String[]>(); // in reality, these arrays will come from the hotel being reviewed and the reviewers account. Not sure how that is passed in or acccessed via the html 
+        JSONArray allReviewsHotel = new JSONArray();
+        JSONArray allReviewsUser = new JSONArray(); // in reality these should be passed in from info on the html page, hotel and user
         String[] reviewInfo = new String[9];
       // each spot in reviewInfo corresponds to a different variable listed above
 
@@ -99,6 +91,7 @@ public class ReviewWriteServlet extends HttpServlet {
     }
     
      
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {

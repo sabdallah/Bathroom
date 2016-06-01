@@ -7,7 +7,6 @@ package org.mypackage.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Iterator;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.servlet.RequestDispatcher;
