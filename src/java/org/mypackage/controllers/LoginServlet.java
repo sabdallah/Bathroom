@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = "";
+        String usernameOrEmail = "";
         String password = "";
         HttpSession ses = request.getSession();
         response.setContentType("text/html");
@@ -44,9 +44,9 @@ public class LoginServlet extends HttpServlet {
         InternetAddress i = null;
      
         
-        if (request.getParameter("username") != null 
-                && !request.getParameter("username").equals("")){
-            username = ((String) request.getParameter("username")).toLowerCase();
+        if (request.getParameter("usernameOrEmail") != null 
+                && !request.getParameter("usernameOrEmail").equals("")){
+            usernameOrEmail = ((String) request.getParameter("usernameOrEmail")).toLowerCase();
         }
         else {
             request.setAttribute("error", new StringHolder("Please fill out all of the required information"));
@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         try {
-                i = new InternetAddress(username);
+                i = new InternetAddress(usernameOrEmail);
         } catch (AddressException ex) {
                 //This will never happen
                 System.out.println("An error has occured");
