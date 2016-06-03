@@ -1,8 +1,14 @@
+<%-- 
+    Document   : faillogin
+    Created on : Jun 3, 2016, 10:42:53 AM
+    Author     : sam
+--%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LooReviews | Register</title>
+        <title>LooReviews | Login</title>
         <meta charset="utf-8">
         
         <meta name="robots" content="noindex, nofollow">
@@ -191,36 +197,21 @@
 
 <div class="container">
             <div class="col-md-12">
-                <form name="Register" action="RegisterServlet" method="post">  
+                <form name="Login" action="LoginServlet" method="post">  
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">*Email address</label>
-                        <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                    </div>
-<div class="form-group">
-                        <label for="exampleInputUsername">*Username</label>
-                        <input type="text" name="username" class="form-control" placeholder="Enter username as seen by LooReview users">
-                    </div>
+                        <label for="exampleInputUsernameOrEmail">Username or Email</label>
+                        <input type="text" name="usernameOrEmail" class="form-control" id="exampleInputUsernameOrEmail" placeholder="Enter username or email">
+        
                     <div class="form-group">
-                        <label for="exampleInputPassword1">*Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <label for="exampleInputPassword">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter password">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">*Confirm Password</label>
-                        <input type="password" name="password2" class="form-control" placeholder="Password">
-                    </div>
-<div class="form-group">
-                        <label for="exampleInputBio">Profile Bio</label>
-                        <input type="text" name="bio" class="form-control" placeholder="Enter your bio">
-                    </div>
-<div class="form-group">
-                        <label for="exampleInputImg">Profile Picture</label>
-                        <input name="img" class="file" type="file" data-preview-file-type="text" placeholder="Enter directory of profile picture">
-                       
-                    </div>
+                    <p>ERROR: <jsp:getProperty name="error" property="string" /></p>
+
                     <br>
 
-                    <input type="submit" class="btn btn-block btn-lg btn-primary" value="Register" name="Register Button"/>  
+                    <input type="submit" class="btn btn-block btn-lg btn-primary" value="Login" name="Login Button"/>  
                 </form>
             </div>
         </div>

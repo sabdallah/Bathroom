@@ -4,7 +4,6 @@ package org.mypackage.controllers;
  * Servlet that checks the database to verify login info and passes the user to the dashboard if info is valid.
  * Also passes the username as an attribute of the HttpSession.
  */
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.mail.internet.AddressException;
@@ -75,15 +74,15 @@ public class LoginServlet extends HttpServlet {
             return;
         }*/
         ses.setAttribute("usernameOrEmail", usernameOrEmail);
-        if (!UserDatabaseHandler.isUser(usernameOrEmail)) {
-            request.setAttribute("error", new StringHolder("There is no user with that username or email in our database."));
-            dispatcher.forward(request, response);
-            return;
-        } else if (!UserDatabaseHandler.checkPassword(usernameOrEmail, password)) {
-            request.setAttribute("error", new StringHolder("Password incorrect."));
-            dispatcher.forward(request, response);
-            return;
-        } //else if(!UserDatabaseHandler.isVerified(username)){
+     //   if (!UserDatabaseHandler.isUser(usernameOrEmail)) {
+     //       request.setAttribute("error", new StringHolder("There is no user with that username or email in our database."));
+     //       dispatcher.forward(request, response);
+     //       return;
+     //  } else if (!UserDatabaseHandler.checkPassword(usernameOrEmail, password)) {
+     //     request.setAttribute("error", new StringHolder("Password incorrect."));
+     //     dispatcher.forward(request, response);
+     //      return;
+     //  } //else if(!UserDatabaseHandler.isVerified(username)){
             //request.setAttribute("error", new StringHolder("User not verified, check your email."));
             //dispatcher.forward(request, response);
         //}

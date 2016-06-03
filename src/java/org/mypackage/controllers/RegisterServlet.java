@@ -38,7 +38,7 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/failRegister.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/failregister.jsp");
         String username, pass1, pass2, email; // required info
         String img, bio; // not required
         InternetAddress i = null;

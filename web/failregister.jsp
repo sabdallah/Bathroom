@@ -1,3 +1,10 @@
+<%-- 
+    Document   : failregister
+    Created on : Jun 3, 2016, 10:16:28 AM
+    Author     : sam
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -218,6 +225,7 @@
                         <input name="img" class="file" type="file" data-preview-file-type="text" placeholder="Enter directory of profile picture">
                        
                     </div>
+                    <p>ERROR: <jsp:getProperty name="error" property="string" /></p>
                     <br>
 
                     <input type="submit" class="btn btn-block btn-lg btn-primary" value="Register" name="Register Button"/>  
