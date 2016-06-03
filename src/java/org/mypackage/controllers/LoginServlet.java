@@ -74,12 +74,12 @@ public class LoginServlet extends HttpServlet {
             dispatcher.forward(request, response);
             return;
         }*/
-        ses.setAttribute("username", username);
-        if (!UserDatabaseHandler.isUser(username)) {
-            request.setAttribute("error", new StringHolder("There is no user with that username in our database."));
+        ses.setAttribute("usernameOrEmail", usernameOrEmail);
+        if (!UserDatabaseHandler.isUser(usernameOrEmail)) {
+            request.setAttribute("error", new StringHolder("There is no user with that username or email in our database."));
             dispatcher.forward(request, response);
             return;
-        } else if (!UserDatabaseHandler.checkPassword(username, password)) {
+        } else if (!UserDatabaseHandler.checkPassword(usernameOrEmail, password)) {
             request.setAttribute("error", new StringHolder("Password incorrect."));
             dispatcher.forward(request, response);
             return;
