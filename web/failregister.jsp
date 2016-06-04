@@ -141,48 +141,13 @@
     }
 </style>
 <script src="http://looreviews.com/static/js/jquery.typeahead.min.js"></script>
-
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">
-                        
-                        <!-- <svg width="172" height="40" style="padding-left:15px;max-height:40px;width:auto;margin:5px 1em 5px 0;">
-                            <image xlink:href="/static/img/logo-wtag.svg" src="/static/img/logo.png" width="172" height="40" />
-                        </svg> -->
-                        <a href="index.html">
-                        <img style="padding-left:15px;max-height:40px;width:auto;margin:5px 1em 5px 0;" src="http://looreviews.com/static/img/logo.png" alt=""LooReviews Home"  />
-                        </a>
-                    </a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    
-                    <ul class="nav navbar-nav navbar-right">
-                    
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user fa-fw"></i> Log in with <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="login.html"><i style="color:#3b5998;width:20px;" class="fa fa-thumbgs-o-up"></i> LooReviews</a></li>
-                                <li><a href="/login/fb/"><i style="color:#3b5998;width:20px;" class="fa fa-facebook"></i> Facebook</a></li>
-                                <li><a href="/login/tw/"><i style="color:#2290bf;width:20px;" class="fa fa-twitter"></i> Twitter</a></li>
-                                <li><a href="/login/li/"><i style="color:#4875B4;width:20px;" class="fa fa-linkedin"></i> LinkedIn</a></li>
-                            </ul>
-                        </li>
-                        
-<li>
-    <a href="register.html"><i style="color:#3b5998;width:20px;" class="fa fa-user-plus"></i> Register</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </nav>
+        <div w3-include-html="navbarNotLoggedIn.html"></div> 
+        <script>
+            w3IncludeHTML();
+        </script>
         <div class="clear" style="height:70px;"></div>
         <div class="modal fade" id="bootstrap-lightscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -234,17 +199,9 @@
         </div>
         
 
-        <footer class="footer">
-            <div class="container">
-                <ul class="text-muted list-inline">
-                    <li>&copy; 2014 LooReviews</li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="termsAndConditions.html">Terms and conditions</a></li>
-                </ul>
-                
-                 
-            </div>
-        </footer>
+        <div w3-include-html="footer.html"></div> 
+        <script>
+            w3IncludeHTML();
+        </script>
     </body>
 </html>
